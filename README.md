@@ -7,8 +7,7 @@ This is an [Expo](https://expo.dev) app installed using [bun](https://bun.sh)
 - [bun](https://bun.sh)
 - [Expo](https://expo.dev)
 - you need to have a [Didit Application](https://docs.didit.me/identity-verification/quick-start#create-your-didit-account)
-
-- didit `client_id` and `client_secret` to create a verification session
+- didit `API Key` to create a verification session
 
 
 ## Get started
