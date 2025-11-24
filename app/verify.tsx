@@ -1,9 +1,9 @@
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
-import { useFocusEffect, useLocalSearchParams } from 'expo-router';
-import WebView, { WebViewMessageEvent } from 'react-native-webview';
-import { useCallback, useState } from 'react';
 import { Camera } from "expo-camera";
+import { useFocusEffect, useLocalSearchParams } from 'expo-router';
+import { useCallback, useState } from 'react';
+import WebView from 'react-native-webview';
 
 
 export default function VerifyScreen() {
@@ -13,7 +13,8 @@ export default function VerifyScreen() {
   useFocusEffect(useCallback(() => {
     (async () => {
       const { status } = await Camera.requestCameraPermissionsAsync();
-      setHasPermission(status === "granted");
+      const { status: audioStatus } = await Camera.requestMicrophonePermissionsAsync();
+      setHasPermission(status === "granted" && audioStatus === "granted");
     })();
   }, []));
 
@@ -31,7 +32,7 @@ export default function VerifyScreen() {
 
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <WebView
         source={{ uri: sessionUrl as string }}
         // Make sure to set the user agent to a generic mobile one
@@ -51,12 +52,12 @@ export default function VerifyScreen() {
         androidLayerType="hardware"
 
       />
-    </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    height: '90%',
+    height: '100%',
   },
 });

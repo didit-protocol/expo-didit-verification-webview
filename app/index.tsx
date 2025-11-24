@@ -1,16 +1,18 @@
-import { Image, StyleSheet, Button, Text, View } from 'react-native';
+import { Image } from 'expo-image';
+import { Button, StyleSheet, View } from 'react-native';
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
-import { initializeVerification } from '@/service/verification';
+import { HelloWave } from '@/components/hello-wave';
+import ParallaxScrollView from '@/components/parallax-scroll-view';
+import { ThemedText } from '@/components/themed-text';
+import { ThemedView } from '@/components/themed-view';
 import { useRouter } from 'expo-router';
+import { initializeVerification } from '@/service/verification';
 
 export default function HomeScreen() {
-  const router = useRouter();
+    const router = useRouter();
   const handleVerify = async () => {
-    const sessionUrl = await initializeVerification();
+        const sessionUrl = await initializeVerification();
+
     router.push({
       pathname: '/verify',
       params: {
@@ -18,6 +20,7 @@ export default function HomeScreen() {
       }
     });
   }
+
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#d2e2ff', dark: '#1D3D47' }}
@@ -60,6 +63,5 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     position: 'absolute',
-
   },
 });

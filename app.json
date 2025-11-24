@@ -1,10 +1,11 @@
 {
   "expo": {
-    "name": "didit-verification-webview-rn",
-    "slug": "didit-verification-webview-rn",
+    "name": "expo-didit-verify",
+    "slug": "expo-didit-verify",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
+    "scheme": "expodiditverify",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
@@ -12,18 +13,19 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/images/android-icon-foreground.png",
+        "backgroundImage": "./assets/images/android-icon-background.png",
+        "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
+      "edgeToEdgeEnabled": true,
+      "predictiveBackGestureEnabled": false,
       "permissions": [
-          "android.permission.CAMERA",
-          "android.permission.MICROPHONE",
-          "android.permission.WRITE_EXTERNAL_STORAGE",
-          "android.permission.MODIFY_AUDIO_SETTINGS"
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO"
       ]
     },
     "web": {
-      "bundler": "metro",
       "output": "static",
       "favicon": "./assets/images/favicon.png"
     },
@@ -35,10 +37,13 @@
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 200,
           "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
+          "backgroundColor": "#ffffff",
+          "dark": {
+            "backgroundColor": "#000000"
+          }
         }
       ],
-      [
+            [
         "expo-camera",
         {
           "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera",
@@ -48,7 +53,8 @@
       ]
     ],
     "experiments": {
-      "typedRoutes": true
+      "typedRoutes": true,
+      "reactCompiler": true
     }
   }
 }

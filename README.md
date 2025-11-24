@@ -4,7 +4,6 @@ This is an [Expo](https://expo.dev) app installed using [bun](https://bun.sh)
 
 ## Requirements
 
-- [bun](https://bun.sh)
 - [Expo](https://expo.dev)
 - you need to have a [Didit Application](https://docs.didit.me/identity-verification/quick-start#create-your-didit-account)
 - didit `API Key` to create a verification session
@@ -15,13 +14,13 @@ This is an [Expo](https://expo.dev) app installed using [bun](https://bun.sh)
 1. Install dependencies
 
    ```bash
-   bun install
+   pnpm install
    ```
 
 2. Start the app
 
    ```bash
-    bun run start
+    pnpm start
    ```
 
 In the output, you'll find options to open the app in a
